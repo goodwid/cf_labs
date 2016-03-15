@@ -19,7 +19,7 @@ confirm('Hi, friend. I\'d like to know a little about you. Mind if I ask you som
 var uName = prompt('What is your name?');
 alert('Hi, ' + uName + ', it\'s really nice to meet you.');
 console.log('User name: ' + uName);
-name.textContent = 'What is your name?';
+userName.textContent = 'What is your name?';
 
 var uBirthYear = prompt('What year were you born?');
 alert('Ah, so you were born in ' + uBirthYear + '. Cool. I was born in 2013. I\'m a youngin\'.');
