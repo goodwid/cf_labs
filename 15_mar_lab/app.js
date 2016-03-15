@@ -18,27 +18,33 @@ confirm('Hi, friend. I\'d like to know a little about you. Mind if I ask you som
 
 var uName = prompt('What is your name?');
 alert('Hi, ' + uName + ', it\'s really nice to meet you.');
-console.log('User name: ' + uName);    //NEED TO COMPLETE CONSOLE.LOG STATEMENTS!!!!!!!!
+console.log('User name: ' + uName);
+name.textContent = 'What is your name?';
 
 var uBirthYear = prompt('What year were you born?');
 alert('Ah, so you were born in ' + uBirthYear + '. Cool. I was born in 2013. I\'m a youngin\'.');
 console.log('User birth year: ' + uBirthYear);
+birthYear.textContent = 'What year were you born?';
 
 var uBirthplace = prompt('What city were you born in?');
 alert('I\'m not sure I\'ve ever been to ' + uBirthplace + '. Me, I was born in a factory.');
 console.log('User birthplace: ' + uBirthplace);
+birthplace.textContent = 'What city were you born in?';
 
 var uAdjective = prompt('Give me an adjective that would have described you as a child.');
 alert('Aww. ' + uName + ' was a ' + uAdjective + ' little kid! I wonder what it\'s like to have a childhood. Computers are kinda born grown-ups.');
 console.log('As a kid user was: ' + uAdjective);
+adjective.textContent = 'Give me an adjective that would have described you as a child.';
 
 var uHighSchool = prompt('What was the name of your high school?');
 alert('I\'ll bet you were a great student back in your ' + uHighSchool + ' days.');
 console.log('User high school: ' + uHighSchool);
+highSchool.textContent = 'What was the name of your high school?';
 
 var uFavoriteClass = prompt('What was your favorite class in high school?');
 alert(uFavoriteClass + ' sounds like a fun class. If I had gone to high school, I think computer science would have been my favorite class!');
 console.log('User\'s favorite high school class: ' + uFavoriteClass);
+faveClass.textContent = 'What was your favorite class in high school?';
 
 /*
 
