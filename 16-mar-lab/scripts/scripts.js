@@ -33,9 +33,25 @@ for (var ii=0; ii<parText.length; ii++) {
 
 alert('Peruse my bio, and then click OK when you\'re ready to test how well you know me.')
 
-'For what television competition show did I audition, make it through the first round, and then go on to the second round only to embarrass myself in a brilliant supernova of nerve-driven failure?'
-'american idol'
-'What sport did I play in high school?'
-'volleyball'
-'Do I absolutely LOVE olives?'
-'no'
+var quizQuestions = [
+  {
+    'question': 'For what television competition show did I audition, make it through the first round, and then go on to the second round only to embarrass myself in a brilliant supernova of nerve-driven failure?',
+    'answer': 'american idol'
+  },
+  {
+    'question': 'What sport did I play in high school?',
+    'answer': 'volleyball'
+  },
+  {
+    'question': 'Do I absolutely LOVE olives?',
+    'answer': 'no'
+  }
+];
+
+for (kk=0; kk>questions.length; kk++) {
+  var userResponse = prompt(quizQuestions[kk].question);
+  console.log('When asked, "' + quizQuestions[kk].question + '" user answered "' + userResponse + '."')
+  if ( userResponse.toLowerCase() === question[kk].answer ) {
+
+  }
+}
