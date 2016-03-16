@@ -1,14 +1,17 @@
-alert('Hey, pal. It\'s Taylor. How well do you know me? Let\'s find out! Click OK to read a little bit about me. After that you can play a little Taylor trivia game.');
+var userName = prompt('What is your name?');
+
+alert('Hi, ' + userName + '. It\'s Taylor. I\'d like to introduce myself. Click OK to read a little bit about me. After that you can play a little Taylor trivia game.');
 
 var parText = [
-'Taylor was born on October 20, 1986, in Winston-Salem, North Carolina. She was Cindy and Scott Shirley\'s second daughter, though the adoption of an older sister would eventually make her the third of four daughters. As a child she learned to play the guitar, took dance classes, sang in the church choir, and almost lost a toe to eczema.',
+  //CHANGE TO ADHERE TO ASSIGNMENT (PORTFOLIO MORE THAN FUN BIO)
+'',
 
-'Taylor studied at UNC-Chapel Hill and graduated in 2009 with a BA in Linguistics and a minor in Hispanic Studies. She spent her penultimate semester studying in Lima, Peru.',
+'',
 
-'Taylor has worked as a Spanish interpreter and a massage therapist and currently lives in Portland, Oregon, with her wife Evelyn. She is now learning coding in the hopes of launching a startup with Evelyn, where they will attempt to use their respective skills to take over the world.'
+''
 ];
 
-var elementId = ['childhood', 'bioChild', 'college', 'bioCollege', 'adulthood', 'bioAdult'];
+var elementId = ['education', 'bioEduc', 'languages', 'bioLang', 'experience', 'bioExp'];
 
 for (var ii=0; ii<parText.length; ii++) {   //Loop cycles through the HTML elements and populates them with biographical information.
   var bioText = parText[0];
@@ -32,7 +35,7 @@ for (var ii=0; ii<parText.length; ii++) {   //Loop cycles through the HTML eleme
   }
 }
 
-alert('Peruse my bio, and then click OK when you\'re ready to test how well you know me. Warning: The questions have nothing to do with this bio. :D')
+alert('Peruse this page, and then click OK when you\'re ready to play a trivia game. Warning: The questions have nothing to do with this bio. :D')
 
 var quizQuestions = [   //Array with objects that each represent a question-answer pair
   {
