@@ -59,11 +59,21 @@ var correct = 0;
 for (kk=0; kk<quizQuestions.length; kk++) {   //Loop cycles through the quiz questions, asks them, checks the answers, then alerts the user regarding right/wrong.
   var userResponse = prompt(quizQuestions[kk].question);
   console.log('When asked, "' + quizQuestions[kk].question + '" user answered "' + userResponse + '."');
-  if ( userResponse.toUpperCase() === quizQuestions[kk].answer) {
+  if (userResponse.toUpperCase() === quizQuestions[kk].answer) {
     alert('That\'s correct!');
     correct++;
   } else {
     alert('Bummer. The answer was actually ' + quizQuestions[kk].answer + '.');
+  }
+  questionCounter++;
+  if (questionCounter === 3) {    //Going to handle fourth question per "Stretch" challenge
+    var userResponse = prompt(quizQuestions[kk].question);
+    while (parseInt(userResponse) !== quizQuestions[kk].answer) {
+
+      alert('That\'s not right.');
+    } else {}
+    //Here, make sure userResponse has been updated with correct answer.
+    console.log('When asked, "' + quizQuestions[kk].question + '" user answered "' + userResponse + '."');
   }
 }
 
