@@ -19,6 +19,8 @@ for (var ii=0; ii<parText.length; ii++) {   //Loop cycles through the HTML eleme
     if (jj%2 === 0) {
       htmlElement.textContent = elementId[jj].toUpperCase();
     } else {
+      document.getElementById(elementId[jj]).textContent = parText[(0.5 * jj - 0.5)];
+/*REPLACED THE SWITCH BELOW WITH THE DECLARATION ABOVE USING .textContent, PLUS AN ALGEBRAIC EXPRESSION (LINE 22) TO DETERMINE INDEX OF parText TO PRINT TO EACH HTML.
       switch (jj) {   //COULD COME UP WITH MATHEMATICAL FUNCTION TO RELATE jj TO ii
         case 1:
           htmlElement.textContent = parText[0];
@@ -30,6 +32,7 @@ for (var ii=0; ii<parText.length; ii++) {   //Loop cycles through the HTML eleme
           htmlElement.textContent = parText[2];
           break;
       }
+*/
     }
   }
 }
