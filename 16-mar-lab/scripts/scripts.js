@@ -8,9 +8,10 @@ var parText = [
 'Taylor has worked as a Spanish interpreter and a massage therapist and currently lives in Portland, Oregon, with her wife Evelyn. She is now learning coding in the hopes of launching a startup with Evelyn, where they will attempt to use their respective skills to take over the world.'
 ];
 
+var elementId = ['childhood', 'bioChild', 'college', 'bioCollege', 'adulthood', 'bioAdult'];
+
 for (var ii=0; ii<parText.length; ii++) {
   var bioText = parText[0];
-  var elementId = ['childhood', 'bioChild', 'college', 'bioCollege', 'adulthood', 'bioAdult'];
   for (jj=0; jj<elementId.length; jj++) {
     var htmlElement = document.getElementById(elementId[jj]);
     if (jj%2 === 0) {
@@ -36,22 +37,24 @@ alert('Peruse my bio, and then click OK when you\'re ready to test how well you 
 var quizQuestions = [
   {
     'question': 'For what television competition show did I audition, make it through the first round, and then go on to the second round only to embarrass myself in a brilliant supernova of nerve-driven failure?',
-    'answer': 'american idol'
+    'answer': 'AMERICAN IDOL'
   },
   {
     'question': 'What sport did I play in high school?',
-    'answer': 'volleyball'
+    'answer': 'VOLLEYBALL'
   },
   {
     'question': 'Do I absolutely LOVE olives?',
-    'answer': 'no'
+    'answer': 'NO'
   }
 ];
 
-for (kk=0; kk>questions.length; kk++) {
+for (kk=0; kk<quizQuestions.length; kk++) {
   var userResponse = prompt(quizQuestions[kk].question);
-  console.log('When asked, "' + quizQuestions[kk].question + '" user answered "' + userResponse + '."')
-  if ( userResponse.toLowerCase() === question[kk].answer ) {
-
+  console.log('When asked, "' + quizQuestions[kk].question + '" user answered "' + userResponse + '."');
+  if ( userResponse.toUpperCase() === quizQuestions[kk].answer) {
+    alert('That\'s correct!');
+  } else {
+    alert('Bummer. The answer was actually ' + quizQuestions[kk].answer + '.');
   }
 }
