@@ -15,7 +15,7 @@ for (var ii=0; ii<parText.length; ii++) {
   for (jj=0; jj<elementId.length; jj++) {
     var htmlElement = document.getElementById(elementId[jj]);
     if (jj%2 === 0) {
-      htmlElement.textContent = elementId[jj].toUpperCase()
+      htmlElement.textContent = elementId[jj].toUpperCase();
     } else {
       switch (jj) {   //COULD COME UP WITH MATHEMATICAL FUNCTION TO RELATE jj TO ii
         case 1:
@@ -49,12 +49,42 @@ var quizQuestions = [
   }
 ];
 
+var correct = 0;
+
 for (kk=0; kk<quizQuestions.length; kk++) {
   var userResponse = prompt(quizQuestions[kk].question);
   console.log('When asked, "' + quizQuestions[kk].question + '" user answered "' + userResponse + '."');
   if ( userResponse.toUpperCase() === quizQuestions[kk].answer) {
     alert('That\'s correct!');
+    correct++;
   } else {
     alert('Bummer. The answer was actually ' + quizQuestions[kk].answer + '.');
   }
 }
+
+console.log('Questions answered correctly: ' + correct + '.');
+
+for (ll=0; ll<elementId.length; ll++) {
+  var htmlElement = document.getElementById(elementId[ll]);
+  htmlElement.textContent = '';
+}
+
+var finalMessage = 'You got ' + correct + ' out of 3 questions right. '
+
+switch (correct) {
+  case 0:
+    finalMessage += 'Not great, but those questions were tough. I still think you\'re tops.';
+    break;
+  case 1:
+    finalMessage += 'That\'s actually not bad. Those questions were tough!';
+    break;
+  case 2:
+    finalMessage += 'That\'s pretty good. Those questions were not easy!';
+    break;
+  case 3:
+    finalMessage += 'Holy crap. Did you cheat?? J/K. Awesome job! Want to be best friends?';
+    break;
+}
+
+document.getElementById('college').textContent = finalMessage;
+document.getElementById('bioCollege').textContent = '(I think the lesson we\'re to learn from all this is clear: Olives are disgusting.)'
