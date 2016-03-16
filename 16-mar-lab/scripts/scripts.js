@@ -10,7 +10,7 @@ var parText = [
 
 var elementId = ['childhood', 'bioChild', 'college', 'bioCollege', 'adulthood', 'bioAdult'];
 
-for (var ii=0; ii<parText.length; ii++) {
+for (var ii=0; ii<parText.length; ii++) {   //Loop cycles through the HTML elements and populates them with biographical information.
   var bioText = parText[0];
   for (jj=0; jj<elementId.length; jj++) {
     var htmlElement = document.getElementById(elementId[jj]);
@@ -32,9 +32,9 @@ for (var ii=0; ii<parText.length; ii++) {
   }
 }
 
-alert('Peruse my bio, and then click OK when you\'re ready to test how well you know me.')
+alert('Peruse my bio, and then click OK when you\'re ready to test how well you know me. Warning: The questions have nothing to do with this bio. :D')
 
-var quizQuestions = [
+var quizQuestions = [   //Array with objects that each represent a question-answer pair
   {
     'question': 'For what television competition show did I audition, make it through the first round, and then go on to the second round only to embarrass myself in a brilliant supernova of nerve-driven failure?',
     'answer': 'AMERICAN IDOL'
@@ -46,12 +46,17 @@ var quizQuestions = [
   {
     'question': 'Do I absolutely LOVE olives?',
     'answer': 'NO'
+  },
+  {
+    'question': 'On New Years of which year did I receive my first kiss?',
+    'answer': 2000
   }
 ];
 
+var questionCounter = 0;
 var correct = 0;
 
-for (kk=0; kk<quizQuestions.length; kk++) {
+for (kk=0; kk<quizQuestions.length; kk++) {   //Loop cycles through the quiz questions, asks them, checks the answers, then alerts the user regarding right/wrong.
   var userResponse = prompt(quizQuestions[kk].question);
   console.log('When asked, "' + quizQuestions[kk].question + '" user answered "' + userResponse + '."');
   if ( userResponse.toUpperCase() === quizQuestions[kk].answer) {
@@ -64,14 +69,14 @@ for (kk=0; kk<quizQuestions.length; kk++) {
 
 console.log('Questions answered correctly: ' + correct + '.');
 
-for (ll=0; ll<elementId.length; ll++) {
+for (ll=0; ll<elementId.length; ll++) {   //Removes the biographical info from the page
   var htmlElement = document.getElementById(elementId[ll]);
   htmlElement.textContent = '';
 }
 
 var finalMessage = 'You got ' + correct + ' out of 3 questions right. '
 
-switch (correct) {
+switch (correct) {    //Depending on number correct, writes some message to the page.
   case 0:
     finalMessage += 'Not great, but those questions were tough. I still think you\'re tops.';
     break;
