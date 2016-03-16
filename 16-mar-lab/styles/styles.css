@@ -4,12 +4,21 @@ html {
 
 h1 {
   color: #181818;
+  /*font-family: 'Pathway Gothic One', sans-serif;*/
+  font-family: sans-serif;
+  font-size: 4em;
 }
 
 h2 {
   color: #3e3149;
+  /*font-family: 'Pathway Gothic One', sans-serif;*/
+  font-family: sans-serif;
+  font-size: 1.5em;
 }
 
 p {
   color: #6a7888;
+  /*font-family: 'Crete Round', serif;*/
+  font-family: serif;
+  font-size: 1em;
 }
