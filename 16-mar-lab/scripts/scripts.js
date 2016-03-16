@@ -56,23 +56,28 @@ var quizQuestions = [   //Array with objects that each represent a question-answ
 var questionCounter = 0;
 var correct = 0;
 
-for (kk=0; kk<quizQuestions.length; kk++) {   //Loop cycles through the quiz questions, asks them, checks the answers, then alerts the user regarding right/wrong.
-  var userResponse = prompt(quizQuestions[kk].question);
-  console.log('When asked, "' + quizQuestions[kk].question + '" user answered "' + userResponse + '."');
-  if (userResponse.toUpperCase() === quizQuestions[kk].answer) {
+for (var kk=0; kk<quizQuestions.length; kk++) {   //Loop cycles through the quiz questions, asks them, checks the answers, then alerts the user regarding right/wrong.
+  questionCounter++;
+  if (questionCounter <= 3) {
+    var userResponse = prompt(quizQuestions[kk].question);
+    console.log('When asked, "' + quizQuestions[kk].question + '" user answered "' + userResponse + '."');
+    if (userResponse.toUpperCase() === quizQuestions[kk].answer) {
+      alert('That\'s correct!');
+      correct++;
+    } else {
+      alert('Bummer. The answer was actually ' + quizQuestions[kk].answer + '.');
+    }
+  } else {
+    do {
+      var userResponse = prompt(quizQuestions[kk].question);
+      if (userResponse > quizQuestions[kk].answer) {
+        alert('Actually, I was younger than ' + (userResponse-1986) + '. Try again.')
+      } else if (userResponse < quizQuestions[kk].answer) {
+        alert('Actually, I was older than ' + (userResponse-1986) + '. Try again.')
+      }
+    } while (parseInt(userResponse) !== quizQuestions[kk].answer)
     alert('That\'s correct!');
     correct++;
-  } else {
-    alert('Bummer. The answer was actually ' + quizQuestions[kk].answer + '.');
-  }
-  questionCounter++;
-  if (questionCounter === 3) {    //Going to handle fourth question per "Stretch" challenge
-    var userResponse = prompt(quizQuestions[kk].question);
-    while (parseInt(userResponse) !== quizQuestions[kk].answer) {
-
-      alert('That\'s not right.');
-    } else {}
-    //Here, make sure userResponse has been updated with correct answer.
     console.log('When asked, "' + quizQuestions[kk].question + '" user answered "' + userResponse + '."');
   }
 }
@@ -84,7 +89,7 @@ for (ll=0; ll<elementId.length; ll++) {   //Removes the biographical info from t
   htmlElement.textContent = '';
 }
 
-var finalMessage = 'You got ' + correct + ' out of 3 questions right. '
+var finalMessage = 'You got ' + correct + ' out of 4 questions right. '
 
 switch (correct) {    //Depending on number correct, writes some message to the page.
   case 0:
@@ -97,6 +102,9 @@ switch (correct) {    //Depending on number correct, writes some message to the 
     finalMessage += 'That\'s pretty good. Those questions were not easy!';
     break;
   case 3:
+    finalMessage += 'That\'s great! I\'m impressed.';
+    break;
+  case 4:
     finalMessage += 'Holy crap. Did you cheat?? J/K. Awesome job! Want to be best friends?';
     break;
 }
