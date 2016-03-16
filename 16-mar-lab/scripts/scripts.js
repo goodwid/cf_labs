@@ -32,3 +32,10 @@ for (var ii=0; ii<parText.length; ii++) {
 }
 
 alert('Peruse my bio, and then click OK when you\'re ready to test how well you know me.')
+
+'For what television competition show did I audition, make it through the first round, and then go on to the second round only to embarrass myself in a brilliant supernova of nerve-driven failure?'
+'american idol'
+'What sport did I play in high school?'
+'volleyball'
+'Do I absolutely LOVE olives?'
+'no'
