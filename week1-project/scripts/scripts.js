@@ -1,13 +1,10 @@
+window.onload = function() {
+
 var elementId = ['education', 'bioEduc', 'languages', 'bioLang', 'langList', 'experience', 'bioExp'];
 
 var userName = prompt('What is your name?');
 
-alert('Hi, ' + userName + '. It\'s Taylor. I\'d like to introduce myself. Click OK to read a little bit about me. After that you can play a little Taylor trivia game.');
-
-document.getElementById('bio').style.visibility = 'visible';
-document.getElementById('top10').style.visibility = 'visible';
-
-alert('Peruse this page, and then click OK when you\'re ready to play a trivia game. Warning: The questions have nothing to do with this bio. :D')
+alert('Hi, ' + userName + '. It\'s Taylor. I\'d like to introduce myself. Please feel free to peruse this page, and then click OK when you\'re ready to play a trivia game about me. Warning: The questions have nothing to do with this bio.')
 
 var quizQuestions = [   //Array with objects that each represent a question-answer pair
   {
@@ -99,3 +96,4 @@ switch (correct) {    //Depending on number correct, writes some message to the 
 
 document.getElementById('languages').textContent = finalMessage;
 document.getElementById('bioLang').textContent = '(I think the lesson we\'re to learn from all this is clear: Olives are disgusting.)'
+}

@@ -4,30 +4,25 @@ html {
 
 h1 {
   color: #181818;
-  font-family: 'BenchNine', sans-serif;
-  font-family: sans-serif;
+  font-family: 'BenchNine', Verdana, sans-serif;
+  font-weight: bolder;
   font-size: 4em;
+  margin-bottom: 0;
 }
 
 h2 {
   color: #3e3149;
-  font-family: 'BenchNine', sans-serif;
-  font-family: sans-serif;
+  font-family: 'BenchNine', Verdana, sans-serif;
   font-size: 1.5em;
 }
 
 p, li {
   color: #6a7888;
-  font-family: 'Bitter', serif;
-  font-family: serif;
+  font-family: 'Bitter', Garamond, serif;
   font-size: 1em;
 }
 
 ul {
   padding: 15px;
   list-style-type: none;
-}
-
-div {
-  visibility: hidden;
 }
