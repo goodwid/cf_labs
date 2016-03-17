@@ -111,9 +111,10 @@ switch (correct) {    //Depending on number correct, writes some message to the 
     finalMessage += 'That\'s pretty good. Those questions were not easy!';
     break;
   case 3:
+  case 4:
     finalMessage += 'That\'s great! I\'m impressed.';
     break;
-  case 4:
+  case 5:
     finalMessage += 'Holy crap. Did you cheat?? J/K. Awesome job! Want to be best friends?';
     break;
 }
