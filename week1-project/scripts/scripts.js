@@ -69,7 +69,7 @@ for (var kk=0; kk<quizQuestions.length; kk++) {   //Loop cycles through the quiz
 }
 
 console.log('Questions answered correctly: ' + correct + '.');
-*/
+
 for (ll=0; ll<divId.length; ll++) {   //Removes the biographical info from the page
   var htmlDiv = document.getElementById(divId[ll]);
   htmlDiv.textContent = '';
@@ -99,3 +99,4 @@ switch (correct) {    //Depending on number correct, writes some message to the 
 document.getElementById('bio').innerHTML = '<h3 id="finalMessage">' + finalMessage + '</h3>';
 document.getElementById('top10').innerHTML = '<h3 id="olivesMessage">(I think the lesson we\'re to learn from all this is clear: Olives are disgusting.)</h3>';
 }
+TESTING CSS*/
