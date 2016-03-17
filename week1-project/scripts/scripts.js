@@ -94,7 +94,7 @@ for (ll=0; ll<elementId.length; ll++) {   //Removes the biographical info from t
   htmlElement.textContent = '';
 }
 
-var finalMessage = 'You got ' + correct + ' out of 4 questions right. '
+var finalMessage = 'You got ' + correct + ' out of ' + questionCounter ' questions right. '
 
 switch (correct) {    //Depending on number correct, writes some message to the page.
   case 0:
