@@ -72,6 +72,7 @@ for (var kk=0; kk<quizQuestions.length; kk++) {   //Loop cycles through the quiz
   } else {
       var userResponse = prompt(quizQuestions[kk].question);
       console.log('When asked, "' + quizQuestions[kk].question + '" user answered "' + userResponse + '."');
+      /*MAKE THIS MORE DRY - (like David's)
       var sisQuestionCorrect = false;
       var sisters = quizQuestions[kk].answer;
       for (var mm=0; mm<sisters.length; mm++) {
@@ -86,6 +87,7 @@ for (var kk=0; kk<quizQuestions.length; kk++) {   //Loop cycles through the quiz
       } else {
         alert('Aw man! My sisters\'s names are actually ' + sisters[0] + ', ' +  sisters[1] + ', and ' + sisters[2] + '. Nice try though!');
         }
+      */
     }
 }
 

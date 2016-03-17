@@ -57,19 +57,3 @@ ol li {
 #top10heading {
   text-align: center;
 }
-
-#finalMessage {
-  margin-top: 60px;
-}
-
-#olivesMessage {
-  font-size: 1.2em;
-}
-
-#finalMessage, #olivesMessage {
-  text-align: center;
-  margin-left: 30%;
-  margin-right: 30%;
-  border: solid 5px #6a7888;
-  border-radius: 3px;
-}
