@@ -5,6 +5,7 @@ var userName = prompt('What is your name?');
 alert('Hi, ' + userName + '. It\'s Taylor. I\'d like to introduce myself. Click OK to read a little bit about me. After that you can play a little Taylor trivia game.');
 
 document.getElementById('bio').style.visibility = 'visible';
+document.getElementById('top10').style.visibility = 'visible';
 
 /*REPLACING THIS WITH HTML CONTENT WRITTENT DIRECTLY INTO HTML FILE.
 var parText = [
