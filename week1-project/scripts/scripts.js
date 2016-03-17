@@ -7,30 +7,6 @@ alert('Hi, ' + userName + '. It\'s Taylor. I\'d like to introduce myself. Click 
 document.getElementById('bio').style.visibility = 'visible';
 document.getElementById('top10').style.visibility = 'visible';
 
-/*REPLACING THIS WITH HTML CONTENT WRITTENT DIRECTLY INTO HTML FILE.
-var parText = [
-  'I graduated summa cum laude from the University of North Carolina at Chapel Hill in 2009, with a Bachelor of Arts degree in Linguistics and a minor in Hispanic Studies.',
-
-  '<ul><li>English (native)</li><li>Spanish (fluent)</li></ul> ',
-
-  'I have worked as a Spanish interpreter and later as a freelance Spanish translator. For the last two years I have operated independently as a licensed massage therapist (NC LMBT #12737). I am now studying to become a web developer.'
-];
-
-var elementId = ['education', 'bioEduc', 'languages', 'bioLang', 'experience', 'bioExp'];
-
-for (var ii=0; ii<parText.length; ii++) {   //Loop cycles through the HTML elements and populates them with biographical information.
-  var bioText = parText[0];
-  for (jj=0; jj<elementId.length; jj++) {
-    var htmlElement = document.getElementById(elementId[jj]);
-    if (jj%2 === 0) {
-      htmlElement.textContent = elementId[jj].toUpperCase();
-    } else {
-      document.getElementById(elementId[jj]).innerHTML = parText[(0.5 * jj - 0.5)];
-    }
-  }
-}
-*/
-
 alert('Peruse this page, and then click OK when you\'re ready to play a trivia game. Warning: The questions have nothing to do with this bio. :D')
 
 var quizQuestions = [   //Array with objects that each represent a question-answer pair
@@ -72,15 +48,23 @@ for (var kk=0; kk<quizQuestions.length; kk++) {   //Loop cycles through the quiz
     }
   } else {
     do {
+      var kissQuestionCounter = 0;
+      var kissQuestionCorrect = false;
       var userResponse = prompt(quizQuestions[kk].question);
+      kissQuestionCounter++;
       if (userResponse > quizQuestions[kk].answer) {
-        alert('Actually, I was younger than ' + (userResponse-1986) + '. Try again.')
+        alert('Actually, I was younger than ' + (userResponse-1986) + '. Try again.');
       } else if (userResponse < quizQuestions[kk].answer) {
-        alert('Actually, I was older than ' + (userResponse-1986) + '. Try again.')
+        alert('Actually, I was older than ' + (userResponse-1986) + '. Try again.');
+      } else {
+        alert('That\'s correct!');
+        kissQuestionCorrect = true;
+        correct++;
       }
-    } while (parseInt(userResponse) !== quizQuestions[kk].answer)
-    alert('That\'s correct!');
-    correct++;
+    } while (parseInt(userResponse) !== quizQuestions[kk].answer && kissQuestionCounter < 4)
+    if (!kissQuestionCorrect) {
+      alert('Bummer. The answer was actually ' + quizQuestions[kk].answer + '.');
+    }
     console.log('When asked, "' + quizQuestions[kk].question + '" user answered "' + userResponse + '."');
   }
 }
