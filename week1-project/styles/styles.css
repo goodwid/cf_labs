@@ -29,6 +29,10 @@ ul {
   margin-bottom: -15px;
 }
 
+ol li {
+  color: #635E8C;
+}
+
 #bio, h1 {
   display: inline-block;
   float: left;
@@ -43,10 +47,11 @@ ul {
   width: 22%;
   margin-right: 5%;
   margin-left: 3%;
-  margin-top: 70px;
+  margin-top: 30px;
   border: 5px solid #3e3149;
   border-radius: 5px;
   padding: 10px;
+  background-color: #ddd;
 }
 
 #top10heading {

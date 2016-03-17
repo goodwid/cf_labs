@@ -1,7 +1,7 @@
 window.onload = function() {
 
 var divId = ['bio', 'top10'];
-/*TESTING CSS
+
 var userName = prompt('What is your name?');
 
 alert('Hi, ' + userName + '. It\'s Taylor. I\'d like to introduce myself. Please feel free to peruse this page, and then click OK when you\'re ready to play a trivia game about me. Warning: The questions have nothing to do with this bio.')
@@ -26,15 +26,19 @@ var quizQuestions = [   //Array with objects that each represent a question-answ
   {
     'question': 'On New Years of which year did I receive my first kiss?',
     'answer': 2000
+  },
+  {
+    'question': 'Can you guess the name of one of my three sisters?',
+    'answer': ['SARA', 'SALEM', 'DEVIN']
   }
 ];
-*/
+
 var questionCounter = 0;
 var correct = 0;
-/*TESTING CSS
+
 for (var kk=0; kk<quizQuestions.length; kk++) {   //Loop cycles through the quiz questions, asks them, checks the answers, then alerts the user regarding right/wrong.
   questionCounter++;
-  if (questionCounter <= (quizQuestions.length - 1)) {
+  if (questionCounter <= (quizQuestions.length - 2)) {
     var userResponse = prompt(quizQuestions[kk].question);
     console.log('When asked, "' + quizQuestions[kk].question + '" user answered "' + userResponse + '."');
     if (userResponse.toUpperCase() === quizQuestions[kk].answer) {
@@ -43,29 +47,39 @@ for (var kk=0; kk<quizQuestions.length; kk++) {   //Loop cycles through the quiz
     } else {
       alert('Bummer. The answer was actually ' + quizQuestions[kk].answer + '.');
     }
-  } else {
-    var kissQuestionCounter = 0;
-    do {
-      var kissQuestionCorrect = false;
-      var userResponse = prompt(quizQuestions[kk].question);
-      kissQuestionCounter++;
-      if (isNaN(parseFloat(userResponse))) {
-        alert('Please enter a year in number form, e.g., 1995 (which is not the answer, by the way).')
-      } else if (parseFloat(userResponse) > quizQuestions[kk].answer && kissQuestionCounter < 4) {
-        alert('Actually, I was younger than ' + (userResponse-1986) + '. Try again.');
-      } else if (parseFloat(userResponse) < quizQuestions[kk].answer && kissQuestionCounter < 4) {
-        alert('Actually, I was older than ' + (userResponse-1986) + '. Try again.');
-      } else if (parseFloat(userResponse) === quizQuestions[kk].answer) {
-        alert('That\'s correct!');
-        kissQuestionCorrect = true;
-        correct++;
-      }
-    } while (parseInt(userResponse) !== quizQuestions[kk].answer && kissQuestionCounter < 4)
+  } else if (questionCounter <= (quizQuestions.length - 1) {
+      var kissQuestionCounter = 0;
+      do {
+        var kissQuestionCorrect = false;
+        var userResponse = prompt(quizQuestions[kk].question);
+        kissQuestionCounter++;
+        if (isNaN(parseFloat(userResponse))) {
+          alert('Please enter a year in number form, e.g., 1995 (which is not the answer, by the way).')
+        } else if (parseFloat(userResponse) > quizQuestions[kk].answer && kissQuestionCounter < 4) {
+            alert('Actually, I was younger than ' + (userResponse-1986) + '. Try again.');
+        } else if (parseFloat(userResponse) < quizQuestions[kk].answer && kissQuestionCounter < 4) {
+            alert('Actually, I was older than ' + (userResponse-1986) + '. Try again.');
+        } else if (parseFloat(userResponse) === quizQuestions[kk].answer) {
+            alert('That\'s correct!');
+            kissQuestionCorrect = true;
+            correct++;
+      } while (parseInt(userResponse) !== quizQuestions[kk].answer && kissQuestionCounter < 4)
     if (!kissQuestionCorrect) {
       alert('Bummer. The answer was actually ' + quizQuestions[kk].answer + '.');
     }
     console.log('When asked, "' + quizQuestions[kk].question + '" user answered "' + userResponse + '."');
-  }
+  } else {
+    var userResponse = prompt(quizQuestions[kk].question);
+    console.log('When asked, "' + quizQuestions[kk].question + '" user answered "' + userResponse + '."');
+    var sisters = quizQuestions[kk].answer;
+    for (var mm=0; mm<sisters.length; mm++) {
+      if (userResponse.toUpperCase() === sisters[mm]) {
+        alert('That\'s correct! How did you know?');
+        correct++;
+      } else {
+        alert('Aw man! My sisters\'s names are actually ' + sisters[0] + ', ' +  sisters[1] + ', and ' + sisters[2] + '. Nice try though!');
+        }
+    }
 }
 
 console.log('Questions answered correctly: ' + correct + '.');
@@ -75,7 +89,7 @@ for (ll=0; ll<divId.length; ll++) {   //Removes the biographical info from the p
   htmlDiv.textContent = '';
 }
 
-var finalMessage = 'You got ' + correct + ' out of ' + questionCounter + ' questions right. ';
+var finalMessage = 'You got ' + correct + ' out of ' + questionCounter + ' questions right, ' + userName + '.';
 
 switch (correct) {    //Depending on number correct, writes some message to the page.
   case 0:
@@ -99,4 +113,3 @@ switch (correct) {    //Depending on number correct, writes some message to the 
 document.getElementById('bio').innerHTML = '<h3 id="finalMessage">' + finalMessage + '</h3>';
 document.getElementById('top10').innerHTML = '<h3 id="olivesMessage">(I think the lesson we\'re to learn from all this is clear: Olives are disgusting.)</h3>';
 }
-TESTING CSS*/
