@@ -49,7 +49,11 @@ var quizQuestions = [   //Array with objects that each represent a question-answ
     'answer': 'VOLLEYBALL'
   },
   {
-    'question': 'Do I absolutely LOVE olives?',
+    'question': 'Who was the first celebrity whom I was told I resemble, gravely damaging my already fragile adolescent self-esteem?',
+    'answer': 'CONAN O\'BRIEN'
+  },
+  {
+    'question': 'Do I absolutely LOVE olives? (YES/NO)',
     'answer': 'NO'
   },
   {
@@ -63,7 +67,7 @@ var correct = 0;
 
 for (var kk=0; kk<quizQuestions.length; kk++) {   //Loop cycles through the quiz questions, asks them, checks the answers, then alerts the user regarding right/wrong.
   questionCounter++;
-  if (questionCounter <= 3) {
+  if (questionCounter <= (quizQuestions.length - 1)) {
     var userResponse = prompt(quizQuestions[kk].question);
     console.log('When asked, "' + quizQuestions[kk].question + '" user answered "' + userResponse + '."');
     if (userResponse.toUpperCase() === quizQuestions[kk].answer) {
@@ -94,7 +98,7 @@ for (ll=0; ll<elementId.length; ll++) {   //Removes the biographical info from t
   htmlElement.textContent = '';
 }
 
-var finalMessage = 'You got ' + correct + ' out of 4 questions right. '
+var finalMessage = 'You got ' + correct + ' out of ' + questionCounter + ' questions right. ';
 
 switch (correct) {    //Depending on number correct, writes some message to the page.
   case 0:
