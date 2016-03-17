@@ -49,11 +49,13 @@ for (var kk=0; kk<quizQuestions.length; kk++) {   //Loop cycles through the quiz
       var kissQuestionCorrect = false;
       var userResponse = prompt(quizQuestions[kk].question);
       kissQuestionCounter++;
-      if (userResponse > quizQuestions[kk].answer && kissQuestionCounter < 4) {
+      if (isNaN(parseFloat(userResponse))) {
+        alert('Please enter a year in number form, e.g., 1995 (which is not the answer, by the way).')
+      } else if (parseFloat(userResponse) > quizQuestions[kk].answer && kissQuestionCounter < 4) {
         alert('Actually, I was younger than ' + (userResponse-1986) + '. Try again.');
-      } else if (userResponse < quizQuestions[kk].answer && kissQuestionCounter < 4) {
+      } else if (parseFloat(userResponse) < quizQuestions[kk].answer && kissQuestionCounter < 4) {
         alert('Actually, I was older than ' + (userResponse-1986) + '. Try again.');
-      } else if (userResponse === quizQuestions[kk].answer) {
+      } else if (parseFloat(userResponse) === quizQuestions[kk].answer) {
         alert('That\'s correct!');
         kissQuestionCorrect = true;
         correct++;
