@@ -47,7 +47,7 @@ for (var kk=0; kk<quizQuestions.length; kk++) {   //Loop cycles through the quiz
     } else {
       alert('Bummer. The answer was actually ' + quizQuestions[kk].answer + '.');
     }
-  } else if (questionCounter <= (quizQuestions.length - 1) {
+  } else if (questionCounter <= (quizQuestions.length - 1)) {
       var kissQuestionCounter = 0;
       do {
         var kissQuestionCorrect = false;
@@ -63,18 +63,25 @@ for (var kk=0; kk<quizQuestions.length; kk++) {   //Loop cycles through the quiz
             alert('That\'s correct!');
             kissQuestionCorrect = true;
             correct++;
+        }
       } while (parseInt(userResponse) !== quizQuestions[kk].answer && kissQuestionCounter < 4)
     if (!kissQuestionCorrect) {
       alert('Bummer. The answer was actually ' + quizQuestions[kk].answer + '.');
     }
     console.log('When asked, "' + quizQuestions[kk].question + '" user answered "' + userResponse + '."');
   } else {
-    var userResponse = prompt(quizQuestions[kk].question);
-    console.log('When asked, "' + quizQuestions[kk].question + '" user answered "' + userResponse + '."');
-    var sisters = quizQuestions[kk].answer;
-    for (var mm=0; mm<sisters.length; mm++) {
-      if (userResponse.toUpperCase() === sisters[mm]) {
-        alert('That\'s correct! How did you know?');
+      var userResponse = prompt(quizQuestions[kk].question);
+      console.log('When asked, "' + quizQuestions[kk].question + '" user answered "' + userResponse + '."');
+      var sisQuestionCorrect = false;
+      var sisters = quizQuestions[kk].answer;
+      for (var mm=0; mm<sisters.length; mm++) {
+        if (userResponse.toUpperCase() === sisters[mm]) {
+          sisQuestionCorrect = true;
+          correct++;
+        }
+      }
+      if (sisQuestionCorrect) {
+        alert('That\'s correct!');
         correct++;
       } else {
         alert('Aw man! My sisters\'s names are actually ' + sisters[0] + ', ' +  sisters[1] + ', and ' + sisters[2] + '. Nice try though!');
@@ -83,11 +90,6 @@ for (var kk=0; kk<quizQuestions.length; kk++) {   //Loop cycles through the quiz
 }
 
 console.log('Questions answered correctly: ' + correct + '.');
-
-for (ll=0; ll<divId.length; ll++) {   //Removes the biographical info from the page
-  var htmlDiv = document.getElementById(divId[ll]);
-  htmlDiv.textContent = '';
-}
 
 var finalMessage = 'You got ' + correct + ' out of ' + questionCounter + ' questions right, ' + userName + '.';
 
@@ -110,6 +112,6 @@ switch (correct) {    //Depending on number correct, writes some message to the 
     break;
 }
 
-document.getElementById('bio').innerHTML = '<h3 id="finalMessage">' + finalMessage + '</h3>';
-document.getElementById('top10').innerHTML = '<h3 id="olivesMessage">(I think the lesson we\'re to learn from all this is clear: Olives are disgusting.)</h3>';
+alert(finalMessage + ' (I think the lesson we\'re to learn from all this is clear: Olives are disgusting.)')
+
 }
