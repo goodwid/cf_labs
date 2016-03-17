@@ -1,7 +1,12 @@
+var elementId = ['education', 'bioEduc', 'languages', 'bioLang', 'langList', 'experience', 'bioExp'];
+
 var userName = prompt('What is your name?');
 
 alert('Hi, ' + userName + '. It\'s Taylor. I\'d like to introduce myself. Click OK to read a little bit about me. After that you can play a little Taylor trivia game.');
 
+document.getElementById('bio').style.visibility = 'visible';
+
+/*REPLACING THIS WITH HTML CONTENT WRITTENT DIRECTLY INTO HTML FILE.
 var parText = [
   'I graduated summa cum laude from the University of North Carolina at Chapel Hill in 2009, with a Bachelor of Arts degree in Linguistics and a minor in Hispanic Studies.',
 
@@ -20,22 +25,10 @@ for (var ii=0; ii<parText.length; ii++) {   //Loop cycles through the HTML eleme
       htmlElement.textContent = elementId[jj].toUpperCase();
     } else {
       document.getElementById(elementId[jj]).innerHTML = parText[(0.5 * jj - 0.5)];
-/*REPLACED THE SWITCH BELOW WITH THE DECLARATION ABOVE USING .textContent, PLUS AN ALGEBRAIC EXPRESSION (LINE 22) TO DETERMINE INDEX OF parText TO PRINT TO EACH HTML.
-      switch (jj) {   //COULD COME UP WITH MATHEMATICAL FUNCTION TO RELATE jj TO ii
-        case 1:
-          htmlElement.textContent = parText[0];
-          break;
-        case 3:
-          htmlElement.textContent = parText[1];
-          break;
-        case 5:
-          htmlElement.textContent = parText[2];
-          break;
-      }
-*/
     }
   }
 }
+*/
 
 alert('Peruse this page, and then click OK when you\'re ready to play a trivia game. Warning: The questions have nothing to do with this bio. :D')
 

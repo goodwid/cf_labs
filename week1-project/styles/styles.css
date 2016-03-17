@@ -16,7 +16,7 @@ h2 {
   font-size: 1.5em;
 }
 
-p {
+p, li {
   color: #6a7888;
   font-family: 'Bitter', serif;
   font-family: serif;
@@ -26,4 +26,8 @@ p {
 ul {
   padding: 15px;
   list-style-type: none;
+}
+
+div {
+  visibility: hidden;
 }
