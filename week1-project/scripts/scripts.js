@@ -1,7 +1,7 @@
 window.onload = function() {
 
-var elementId = ['education', 'bioEduc', 'languages', 'bioLang', 'langList', 'experience', 'bioExp'];
-
+var divId = ['bio', 'top10'];
+/*TESTING CSS
 var userName = prompt('What is your name?');
 
 alert('Hi, ' + userName + '. It\'s Taylor. I\'d like to introduce myself. Please feel free to peruse this page, and then click OK when you\'re ready to play a trivia game about me. Warning: The questions have nothing to do with this bio.')
@@ -28,10 +28,10 @@ var quizQuestions = [   //Array with objects that each represent a question-answ
     'answer': 2000
   }
 ];
-
+*/
 var questionCounter = 0;
 var correct = 0;
-
+/*TESTING CSS
 for (var kk=0; kk<quizQuestions.length; kk++) {   //Loop cycles through the quiz questions, asks them, checks the answers, then alerts the user regarding right/wrong.
   questionCounter++;
   if (questionCounter <= (quizQuestions.length - 1)) {
@@ -69,10 +69,10 @@ for (var kk=0; kk<quizQuestions.length; kk++) {   //Loop cycles through the quiz
 }
 
 console.log('Questions answered correctly: ' + correct + '.');
-
-for (ll=0; ll<elementId.length; ll++) {   //Removes the biographical info from the page
-  var htmlElement = document.getElementById(elementId[ll]);
-  htmlElement.textContent = '';
+*/
+for (ll=0; ll<divId.length; ll++) {   //Removes the biographical info from the page
+  var htmlDiv = document.getElementById(divId[ll]);
+  htmlDiv.textContent = '';
 }
 
 var finalMessage = 'You got ' + correct + ' out of ' + questionCounter + ' questions right. ';
@@ -96,6 +96,6 @@ switch (correct) {    //Depending on number correct, writes some message to the 
     break;
 }
 
-document.getElementById('languages').textContent = finalMessage;
-document.getElementById('bioLang').textContent = '(I think the lesson we\'re to learn from all this is clear: Olives are disgusting.)'
+document.getElementById('bio').innerHTML = '<h3 id="finalMessage">' + finalMessage + '</h3>';
+document.getElementById('top10').innerHTML = '<h3 id="olivesMessage">(I think the lesson we\'re to learn from all this is clear: Olives are disgusting.)</h3>';
 }
