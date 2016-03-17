@@ -5,7 +5,7 @@ alert('Hi, ' + userName + '. It\'s Taylor. I\'d like to introduce myself. Click 
 var parText = [
   'I graduated summa cum laude from the University of North Carolina at Chapel Hill in 2009, with a Bachelor of Arts degree in Linguistics and a minor in Hispanic Studies.',
 
-  'I am a native speaker of English and speak Spanish fluently.',
+  '<ul><li>English (native)</li><li>Spanish (fluent)</li></ul> ',
 
   'I have worked as a Spanish interpreter and later as a freelance Spanish translator. For the last two years I have operated independently as a licensed massage therapist (NC LMBT #12737). I am now studying to become a web developer.'
 ];
@@ -19,7 +19,7 @@ for (var ii=0; ii<parText.length; ii++) {   //Loop cycles through the HTML eleme
     if (jj%2 === 0) {
       htmlElement.textContent = elementId[jj].toUpperCase();
     } else {
-      document.getElementById(elementId[jj]).textContent = parText[(0.5 * jj - 0.5)];
+      document.getElementById(elementId[jj]).innerHTML = parText[(0.5 * jj - 0.5)];
 /*REPLACED THE SWITCH BELOW WITH THE DECLARATION ABOVE USING .textContent, PLUS AN ALGEBRAIC EXPRESSION (LINE 22) TO DETERMINE INDEX OF parText TO PRINT TO EACH HTML.
       switch (jj) {   //COULD COME UP WITH MATHEMATICAL FUNCTION TO RELATE jj TO ii
         case 1:
