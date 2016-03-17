@@ -47,16 +47,16 @@ for (var kk=0; kk<quizQuestions.length; kk++) {   //Loop cycles through the quiz
       alert('Bummer. The answer was actually ' + quizQuestions[kk].answer + '.');
     }
   } else {
+    var kissQuestionCounter = 0;
     do {
-      var kissQuestionCounter = 0;
       var kissQuestionCorrect = false;
       var userResponse = prompt(quizQuestions[kk].question);
       kissQuestionCounter++;
-      if (userResponse > quizQuestions[kk].answer) {
+      if (userResponse > quizQuestions[kk].answer && kissQuestionCounter < 4) {
         alert('Actually, I was younger than ' + (userResponse-1986) + '. Try again.');
-      } else if (userResponse < quizQuestions[kk].answer) {
+      } else if (userResponse < quizQuestions[kk].answer && kissQuestionCounter < 4) {
         alert('Actually, I was older than ' + (userResponse-1986) + '. Try again.');
-      } else {
+      } else if (userResponse === quizQuestions[kk].answer) {
         alert('That\'s correct!');
         kissQuestionCorrect = true;
         correct++;
