@@ -88,7 +88,7 @@ function askForArray (quizQuestion, quizAnswer) {
   var userResponse = (prompt(quizQuestion)).toUpperCase();
   console.log('When asked, "' + quizQuestion + '" user answered "' + userResponse + '."');
   if (quizAnswer.indexOf(userResponse)>=0) {
-    output += '<p>' + quizAnswer + ' is correct!</p>';
+    output += '<p>' + userResponse + ' is correct!</p>';
     correct++;
   } else {
     var arrayItems = quizAnswer.join(', ');
@@ -129,6 +129,8 @@ switch (correct) {    //Depending on number correct, writes some message to the 
     break;
 }
 
-alert(finalMessage + ' (I think the lesson we\'re to learn from all this is clear: Olives are disgusting.)')
+finalMessage += ' (I think the lesson we\'re to learn from all this is clear: Olives are disgusting.)'
 
+output = '<p id="results">' + finalMessage + '</p>' + output;
+document.getElementById('feedback').innerHTML = output;
 }

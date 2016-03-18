@@ -70,7 +70,7 @@ ol li {
 }
 
 #top10 {
-  display: inline-block;
+  display: inline-block;>
   float: right;
   height: 300px;
   width: 22%;
@@ -86,4 +86,12 @@ ol li {
 #top10heading {
   text-align: center;
   margin-top: 24px;
+}
+
+#results {
+    color: red;
+}
+
+#feedback {
+    clear: both;
 }
