@@ -46,7 +46,7 @@ function askForString (quizQuestion, quizAnswer) {
 
 
   if (userResponse === quizAnswer) {
-    output += '<p>That\'s correct!</p>';
+    output += '<p>' + quizAnswer + ' is correct!</p>';
     correct++;
   } else {
     output += '<p>Bummer. The answer was actually ' + quizAnswer + '.</p>';
@@ -57,6 +57,8 @@ function askForString (quizQuestion, quizAnswer) {
 function askForNumber (quizQuestion, quizAnswer) {
   questionCounter++;
   var chancesCounter = 0;
+  output += '<h2>' + quizQuestion + '</h2>';
+  document.getElementById('feedback').innerHTML = output;
   do {
     var numberCorrect = false;
     var userResponse = prompt(quizQuestion);
@@ -67,14 +69,14 @@ function askForNumber (quizQuestion, quizAnswer) {
         alert('Sorry, the answer is less than ' + userResponse + '. Try again.');
     } else if (parseFloat(userResponse) < quizAnswer && chancesCounter < 4) {
         alert('Sorry, the answer is more than ' + userResponse + '. Try again.');
-    } else if (parseFloat(userResponse) === quizAnswer) {
-        alert('That\'s correct!');
+    } else if (parseFloat(userResponse)=== quizAnswer) {
+        output += '<p>' + quizAnswer + ' is correct!</p>';
         numberCorrect = true;
         correct++;
     }
   } while (!numberCorrect && chancesCounter < 4)
   if (!numberCorrect) {
-    alert('Bummer. The answer was actually ' + quizAnswer + '.');
+    output += '<p>Bummer. The answer was actually ' + quizAnswer + '.</p>';
   }
   console.log('When asked, "' + quizQuestion + '" user answered "' + userResponse + '."');
 }
@@ -86,7 +88,7 @@ function askForArray (quizQuestion, quizAnswer) {
   var userResponse = (prompt(quizQuestion)).toUpperCase();
   console.log('When asked, "' + quizQuestion + '" user answered "' + userResponse + '."');
   if (quizAnswer.indexOf(userResponse)>=0) {
-    output += '<p>That\'s correct!</p>';
+    output += '<p>' + quizAnswer + ' is correct!</p>';
     correct++;
   } else {
     var arrayItems = quizAnswer.join(', ');
