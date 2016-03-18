@@ -1,41 +1,93 @@
 window.onload = function() {
 
-var divId = ['bio', 'top10'];
-
 var userName = prompt('What is your name?');
 
 alert('Hi, ' + userName + '. It\'s Taylor. I\'d like to introduce myself. Please feel free to peruse this page, and then click OK when you\'re ready to play a trivia game about me. Warning: The questions have nothing to do with this bio.')
 
-var quizQuestions = [   //Array with objects that each represent a question-answer pair
+var questions = [   //Array with objects that each represent a question-(string)answer pair
   {
     'question': 'For what television competition show did I audition, make it through the first round, and then go on to the second round only to embarrass myself in a brilliant supernova of nerve-driven failure?',
-    'answer': 'AMERICAN IDOL'
+    'answer': 'AMERICAN IDOL',
+    'answer-type': 'string',
+    'num-answers': 'single'
   },
   {
     'question': 'What sport did I play in high school?',
-    'answer': 'VOLLEYBALL'
+    'answer': 'VOLLEYBALL',
+    'answer-type': 'string',
+    'answer-quant': 'single'
   },
   {
     'question': 'Who was the first celebrity whom I was told I resemble, gravely damaging my already fragile adolescent self-esteem?',
-    'answer': 'CONAN O\'BRIEN'
+    'answer': 'CONAN O\'BRIEN',
+    'answer-type': 'string',
+    'answer-quant': 'single'
   },
   {
     'question': 'Do I absolutely LOVE olives? (YES/NO)',
-    'answer': 'NO'
+    'answer': 'NO',
+    'answer-type': 'string',
+    'answer-quant': 'single'
   },
   {
-    'question': 'On New Years of which year did I receive my first kiss?',
-    'answer': 2000
+    'question': 'How old was I when I received my first kiss?',
+    'answer': 14,
+    'answer-type': 'number',
+    'answer-quant': 'single'
   },
   {
     'question': 'Can you guess the name of one of my three sisters?',
-    'answer': ['SARA', 'SALEM', 'DEVIN']
+    'answer': ['SARA', 'SALEM', 'DEVIN'],
+    'answer-type': 'array',
+    'answer-quant': 'multiple'
   }
 ];
+
+//for every round, regardless of question type, we want to ask the question and log the answer
+var userResponse = prompt(quizQuestions[kk].question);
+console.log('When asked, "' + quizQuestions[kk].question + '" user answered "' + userResponse + '."');
+//*****LOOP THROUGH QUESTIONS AND, BASED ON answer-type, RUN FUNCTION TO HANDLE ANSWER*****
+
+// //functions askString, askNumber, and askArray for processing answers
+// function askString(answer) {
+//   if (userResponse.toUpperCase() === answer) {
+//     alert('That\'s correct!');
+//     correct++;
+//   } else {
+//     alert('Bummer. The answer was actually ' + answer + '.');
+//   }
+// }
+//
+// function askNumber(answer) {
+//   var chancesCounter = 0;
+//   do {
+//     var kissCorrect = false;
+//     chancesCounter++;
+//     if (isNaN(parseFloat(userResponse))) {
+//       alert('Please enter a year in number form, e.g., 1995 (which is not the answer, by the way).')
+//     } else if (parseFloat(userResponse) > answer && chancesCounter < 4) {
+//         alert('Actually, I was younger than ' + (userResponse-1986) + '. Try again.');
+//     } else if (parseFloat(userResponse) < answer && questionCounter < 4) {
+//         alert('Actually, I was older than ' + (userResponse-1986) + '. Try again.');
+//     } else if (parseFloat(userResponse) === answer) {
+//         alert('That\'s correct!');
+//         kissCorrect = true;
+//         correct++;
+//     }
+//   } while (parseInt(userResponse) !== answer && kissQuestionCounter < 4)
+//   if (!kissQuestionCorrect) {
+//     alert('Bummer. The answer was actually ' + quizQuestions[kk].answer + '.');
+//   }
+// }
+//
+// function askArray(answer) {
+//
+// }
 
 var questionCounter = 0;
 var correct = 0;
 
+/*TRYING TO "DRY" THE BELOW CODE, ABOVE
 for (var kk=0; kk<quizQuestions.length; kk++) {   //Loop cycles through the quiz questions, asks them, checks the answers, then alerts the user regarding right/wrong.
   questionCounter++;
   if (questionCounter <= (quizQuestions.length - 2)) {
@@ -72,7 +124,7 @@ for (var kk=0; kk<quizQuestions.length; kk++) {   //Loop cycles through the quiz
   } else {
       var userResponse = prompt(quizQuestions[kk].question);
       console.log('When asked, "' + quizQuestions[kk].question + '" user answered "' + userResponse + '."');
-      /*MAKE THIS MORE DRY - (like David's)
+      //MAKE THIS (BELOW) MORE DRY (like David's)
       var sisQuestionCorrect = false;
       var sisters = quizQuestions[kk].answer;
       for (var mm=0; mm<sisters.length; mm++) {
@@ -87,13 +139,13 @@ for (var kk=0; kk<quizQuestions.length; kk++) {   //Loop cycles through the quiz
       } else {
         alert('Aw man! My sisters\'s names are actually ' + sisters[0] + ', ' +  sisters[1] + ', and ' + sisters[2] + '. Nice try though!');
         }
-      */
     }
 }
+*/
 
 console.log('Questions answered correctly: ' + correct + '.');
 
-var finalMessage = 'You got ' + correct + ' out of ' + questionCounter + ' questions right, ' + userName + '.';
+var finalMessage = 'You got ' + correct + ' out of ' + questionCounter + ' questions right, ' + userName + '. ';
 
 switch (correct) {    //Depending on number correct, writes some message to the page.
   case 0:
