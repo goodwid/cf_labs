@@ -12,38 +12,38 @@ var questions = [   //Array with objects that each represent a question-answer p
   {
     'question': 'For what television competition show did I audition, make it through the first round, and then go on to the second round only to embarrass myself in a brilliant supernova of nerve-driven failure?',
     'answer': 'AMERICAN IDOL',
-    'answer-type': 'string',
-    'num-answers': 'single'
+    'answerType': 'string',
+    'answerQuant': 'single'
   },
   {
     'question': 'What sport did I play in high school?',
     'answer': 'VOLLEYBALL',
-    'answer-type': 'string',
-    'answer-quant': 'single'
+    'answerType': 'string',
+    'answerQuant': 'single'
   },
   {
     'question': 'Who was the first celebrity whom I was told I resemble, gravely damaging my already fragile adolescent self-esteem?',
     'answer': 'CONAN O\'BRIEN',
-    'answer-type': 'string',
-    'answer-quant': 'single'
+    'answerType': 'string',
+    'answerQuant': 'single'
   },
   {
     'question': 'Do I absolutely LOVE olives? (YES/NO)',
     'answer': 'NO',
-    'answer-type': 'string',
-    'answer-quant': 'single'
+    'answerType': 'string',
+    'answerQuant': 'single'
   },
   {
     'question': 'How old was I when I received my first kiss?',
     'answer': 14,
-    'answer-type': 'number',
-    'answer-quant': 'single'
+    'answerType': 'number',
+    'answerQuant': 'single'
   },
   {
     'question': 'Can you guess the name of one of my three sisters?',
     'answer': ['SARA', 'SALEM', 'DEVIN'],
-    'answer-type': 'array',
-    'answer-quant': 'multiple'
+    'answerType': 'array',
+    'answerQuant': 'multiple'
   }
 ];
 
@@ -52,7 +52,19 @@ for (ii=0; ii<questions.length; ii++) {
   var userResponse = prompt(quizQuestions[ii].question);
   console.log('When asked, "' + quizQuestions[ii].question + '" user answered "' + userResponse + '."');
   questionCounter++;
-
+  //ADD SWITCH TO HANDLE DIFFERENT ANSWER TYPES AND CORRESPONDING ANALYSIS APPROACHES
+  var questionType = questions[kk].answerType;
+  switch (questionType) {
+    case string:
+      //DO X
+      break;
+    case number:
+      //DO X
+      break;
+    case array:
+      //DO X
+      break;
+  }
 }
 //*****LOOP THROUGH QUESTIONS AND, BASED ON answer-type, RUN FUNCTION TO HANDLE ANSWER*****
 
