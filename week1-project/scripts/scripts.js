@@ -70,30 +70,22 @@ for (var kk=0; kk<quizQuestions.length; kk++) {   //Loop cycles through the quiz
     }
     console.log('When asked, "' + quizQuestions[kk].question + '" user answered "' + userResponse + '."');
   } else {
-      var userResponse = prompt(quizQuestions[kk].question);
+      var userResponse = (prompt(quizQuestions[kk].question)).toUpperCase();
       console.log('When asked, "' + quizQuestions[kk].question + '" user answered "' + userResponse + '."');
-      /*MAKE THIS MORE DRY - (like David's)
-      var sisQuestionCorrect = false;
-      var sisters = quizQuestions[kk].answer;
-      for (var mm=0; mm<sisters.length; mm++) {
-        if (userResponse.toUpperCase() === sisters[mm]) {
-          sisQuestionCorrect = true;
-          correct++;
-        }
-      }
-      if (sisQuestionCorrect) {
+      var correctResponse = quizQuestions[kk].answer;
+      if (correctResponse.indexOf(userResponse)>=0) {
         alert('That\'s correct!');
         correct++;
       } else {
-        alert('Aw man! My sisters\'s names are actually ' + sisters[0] + ', ' +  sisters[1] + ', and ' + sisters[2] + '. Nice try though!');
+        var arrayItems = correctResponse.join(', ');
+        alert('Sorry, that\'s incorrect. Any of the following would have been correct: ' + arrayItems + '. Nice try though!');
         }
-      */
     }
 }
 
 console.log('Questions answered correctly: ' + correct + '.');
 
-var finalMessage = 'You got ' + correct + ' out of ' + questionCounter + ' questions right, ' + userName + '.';
+var finalMessage = 'You got ' + correct + ' out of ' + questionCounter + ' questions right, ' + userName + '. ';
 
 switch (correct) {    //Depending on number correct, writes some message to the page.
   case 0:
