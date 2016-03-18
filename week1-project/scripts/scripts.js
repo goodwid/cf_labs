@@ -52,11 +52,14 @@ for (ii=0; ii<questions.length; ii++) {
   var userResponse = prompt(quizQuestions[ii].question);
   console.log('When asked, "' + quizQuestions[ii].question + '" user answered "' + userResponse + '."');
   questionCounter++;
-  //ADD SWITCH TO HANDLE DIFFERENT ANSWER TYPES AND CORRESPONDING ANALYSIS APPROACHES
-  var questionType = questions[kk].answerType;
-  switch (questionType) {
+  //SWITCH TO HANDLE DIFFERENT ANSWER TYPES AND CORRESPONDING ANALYSIS APPROACHES
+  var answerType = questions[kk].answerType;
+  switch (answerType) {
     case string:
-      //DO X
+      if (userResponse.toUpperCase() === questions[ii].answer) {
+        numberCorrect++;
+        correctAnswer = true;
+      }
       break;
     case number:
       //DO X
@@ -65,8 +68,16 @@ for (ii=0; ii<questions.length; ii++) {
       //DO X
       break;
   }
+  if (questions[ii].answerQuant === 'single') {
+    if (correctAnswer) {
+      alert('That\'s correct!');
+      numberCorrect++;
+      correctAnswer = false;
+    } else {
+      alert('Bummer. The answer was actually ' + quizQuestions[ii].answer + '.');
+    }
+  }
 }
-//*****LOOP THROUGH QUESTIONS AND, BASED ON answer-type, RUN FUNCTION TO HANDLE ANSWER*****
 
 // //functions askString, askNumber, and askArray for processing answers
 // function askString(answer) {
