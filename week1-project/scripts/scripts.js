@@ -4,7 +4,11 @@ var userName = prompt('What is your name?');
 
 alert('Hi, ' + userName + '. It\'s Taylor. I\'d like to introduce myself. Please feel free to peruse this page, and then click OK when you\'re ready to play a trivia game about me. Warning: The questions have nothing to do with this bio.')
 
-var questions = [   //Array with objects that each represent a question-(string)answer pair
+var questionCounter = 0;
+var numberCorrect = 0;
+var correctAnswer = false;
+
+var questions = [   //Array with objects that each represent a question-answer pair
   {
     'question': 'For what television competition show did I audition, make it through the first round, and then go on to the second round only to embarrass myself in a brilliant supernova of nerve-driven failure?',
     'answer': 'AMERICAN IDOL',
