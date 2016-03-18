@@ -22,8 +22,8 @@ var quizQuestions = [   //Array with objects that each represent a question-answ
     'answer': 'NO'
   },
   {
-    'question': 'On New Years of which year did I receive my first kiss?',
-    'answer': 2000
+    'question': 'How old was I when I received my first kiss?',
+    'answer': 14
   },
   {
     'question': 'Can you guess the name of one of my three sisters?',
@@ -33,6 +33,29 @@ var quizQuestions = [   //Array with objects that each represent a question-answ
 
 var questionCounter = 0;
 var correct = 0;
+
+
+//PUTTING QUESTIONS & CORRESPONDING LOGIC INTO FUNCTIONS
+function askForString (quizQuestion, answer) {
+  questionCounter++;
+  var userResponse = prompt(question);
+  console.log('When asked, "' + quizQuestion + '" user answered "' + userResponse + '."');
+  if (userResponse.toUpperCase() === quizQuestion.answer) {
+    alert('That\'s correct!');
+    correct++;
+  } else {
+    alert('Bummer. The answer was actually ' + quizQuestion + '.');
+    }
+}
+
+function askForNumber (question, answer) {
+  questionCounter++;
+}
+
+function askForArray (question, answer) {
+  questionCounter++;
+}
+
 
 for (var kk=0; kk<quizQuestions.length; kk++) {   //Loop cycles through the quiz questions, asks them, checks the answers, then alerts the user regarding right/wrong.
   questionCounter++;
