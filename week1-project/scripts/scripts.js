@@ -1,5 +1,8 @@
 window.onload = function() {
 
+var questionCounter = 0;
+var correct = 0;
+
 var userName = prompt('What is your name?');
 
 alert('Hi, ' + userName + '. It\'s Taylor. I\'d like to introduce myself. Please feel free to peruse this page, and then click OK when you\'re ready to play a trivia game about me. Warning: The questions have nothing to do with this bio.')
@@ -31,77 +34,60 @@ var quizQuestions = [   //Array with objects that each represent a question-answ
   }
 ];
 
-var questionCounter = 0;
-var correct = 0;
-
-
-//PUTTING QUESTIONS & CORRESPONDING LOGIC INTO FUNCTIONS
-function askForString (quizQuestion, answer) {
+//put question presentation, answer analysis, and feedback in functions based on answer type (string, number, or array)
+function askForString (quizQuestion, quizAnswer) {
   questionCounter++;
-  var userResponse = prompt(question);
+  var userResponse = (prompt(quizQuestion)).toUpperCase();
   console.log('When asked, "' + quizQuestion + '" user answered "' + userResponse + '."');
-  if (userResponse.toUpperCase() === quizQuestion.answer) {
+  if (userResponse === quizAnswer) {
     alert('That\'s correct!');
     correct++;
   } else {
-    alert('Bummer. The answer was actually ' + quizQuestion + '.');
+    alert('Bummer. The answer was actually ' + quizAnswer + '.');
     }
 }
 
-function askForNumber (question, answer) {
+function askForNumber (quizQuestion, quizAnswer) {
   questionCounter++;
-}
-
-function askForArray (question, answer) {
-  questionCounter++;
-}
-
-
-for (var kk=0; kk<quizQuestions.length; kk++) {   //Loop cycles through the quiz questions, asks them, checks the answers, then alerts the user regarding right/wrong.
-  questionCounter++;
-  if (questionCounter <= (quizQuestions.length - 2)) {
-    var userResponse = prompt(quizQuestions[kk].question);
-    console.log('When asked, "' + quizQuestions[kk].question + '" user answered "' + userResponse + '."');
-    if (userResponse.toUpperCase() === quizQuestions[kk].answer) {
-      alert('That\'s correct!');
-      correct++;
-    } else {
-      alert('Bummer. The answer was actually ' + quizQuestions[kk].answer + '.');
-    }
-  } else if (questionCounter <= (quizQuestions.length - 1)) {
-      var kissQuestionCounter = 0;
-      do {
-        var kissQuestionCorrect = false;
-        var userResponse = prompt(quizQuestions[kk].question);
-        kissQuestionCounter++;
-        if (isNaN(parseFloat(userResponse))) {
-          alert('Please enter a year in number form, e.g., 1995 (which is not the answer, by the way).')
-        } else if (parseFloat(userResponse) > quizQuestions[kk].answer && kissQuestionCounter < 4) {
-            alert('Actually, I was younger than ' + (userResponse-1986) + '. Try again.');
-        } else if (parseFloat(userResponse) < quizQuestions[kk].answer && kissQuestionCounter < 4) {
-            alert('Actually, I was older than ' + (userResponse-1986) + '. Try again.');
-        } else if (parseFloat(userResponse) === quizQuestions[kk].answer) {
-            alert('That\'s correct!');
-            kissQuestionCorrect = true;
-            correct++;
-        }
-      } while (parseInt(userResponse) !== quizQuestions[kk].answer && kissQuestionCounter < 4)
-    if (!kissQuestionCorrect) {
-      alert('Bummer. The answer was actually ' + quizQuestions[kk].answer + '.');
-    }
-    console.log('When asked, "' + quizQuestions[kk].question + '" user answered "' + userResponse + '."');
-  } else {
-      var userResponse = (prompt(quizQuestions[kk].question)).toUpperCase();
-      console.log('When asked, "' + quizQuestions[kk].question + '" user answered "' + userResponse + '."');
-      var correctResponse = quizQuestions[kk].answer;
-      if (correctResponse.indexOf(userResponse)>=0) {
+  var chancesCounter = 0;
+  do {
+    var numberCorrect = false;
+    var userResponse = prompt(quizQuestion);
+    chancesCounter++;
+    if (isNaN(parseFloat(userResponse))) {
+      alert('Please enter a number using digits only.')
+    } else if (parseFloat(userResponse) > quizAnswer && chancesCounter < 4) {
+        alert('Sorry, the answer is less than ' + userResponse + '. Try again.');
+    } else if (parseFloat(userResponse) < quizAnswer && chancesCounter < 4) {
+        alert('Sorry, the answer is more than ' + userResponse + '. Try again.');
+    } else if (parseFloat(userResponse) === quizAnswer) {
         alert('That\'s correct!');
+        numberCorrect = true;
         correct++;
-      } else {
-        var arrayItems = correctResponse.join(', ');
-        alert('Sorry, that\'s incorrect. Any of the following would have been correct: ' + arrayItems + '. Nice try though!');
-        }
     }
+  } while (!numberCorrect && chancesCounter < 4)
+  if (!numberCorrect) {
+    alert('Bummer. The answer was actually ' + quizAnswer + '.');
+  }
+  console.log('When asked, "' + quizQuestions[kk].question + '" user answered "' + userResponse + '."');
+}
+
+function askForArray (quizQuestion, quizAnswer) {
+  questionCounter++;
+  var userResponse = (prompt(quizQuestion)).toUpperCase();
+  console.log('When asked, "' + quizQuestions[kk].question + '" user answered "' + userResponse + '."');
+  if (quizAnswer.indexOf(userResponse)>=0) {
+    alert('That\'s correct!');
+    correct++;
+  } else {
+    var arrayItems = correctResponse.join(', ');
+    alert('Sorry, that\'s incorrect. Any of the following would have been correct: ' + arrayItems + '. Nice try though!');
+    }
+}
+
+//call functions to ask questions and analyze answer
+for (var ii=0; ii<4; ii++) {
+  
 }
 
 console.log('Questions answered correctly: ' + correct + '.');
