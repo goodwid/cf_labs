@@ -48,8 +48,12 @@ var questions = [   //Array with objects that each represent a question-answer p
 ];
 
 //for every round, regardless of question type, we want to ask the question and log the answer
-var userResponse = prompt(quizQuestions[kk].question);
-console.log('When asked, "' + quizQuestions[kk].question + '" user answered "' + userResponse + '."');
+for (ii=0; ii<questions.length; ii++) {
+  var userResponse = prompt(quizQuestions[ii].question);
+  console.log('When asked, "' + quizQuestions[ii].question + '" user answered "' + userResponse + '."');
+  questionCounter++;
+
+}
 //*****LOOP THROUGH QUESTIONS AND, BASED ON answer-type, RUN FUNCTION TO HANDLE ANSWER*****
 
 // //functions askString, askNumber, and askArray for processing answers
