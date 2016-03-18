@@ -81,15 +81,18 @@ function askForNumber (quizQuestion, quizAnswer) {
 
 function askForArray (quizQuestion, quizAnswer) {
   questionCounter++;
+  output += '<h2>' + quizQuestion + '</h2>';
+  document.getElementById('feedback').innerHTML = output;
   var userResponse = (prompt(quizQuestion)).toUpperCase();
   console.log('When asked, "' + quizQuestion + '" user answered "' + userResponse + '."');
   if (quizAnswer.indexOf(userResponse)>=0) {
-    alert('That\'s correct!');
+    output += '<p>That\'s correct!</p>';
     correct++;
   } else {
     var arrayItems = quizAnswer.join(', ');
-    alert('Sorry, that\'s incorrect. Any of the following would have been correct: ' + arrayItems + '. Nice try though!');
+    output += '<p>Sorry, that\'s incorrect. Any of the following would have been correct: ' + arrayItems + '. Nice try though!</p>';
     }
+  document.getElementById('feedback').innerHTML = output;
 }
 
 //call functions to ask questions and analyze answer (could replace with for loop that checks for typeOf() quizQuestions[x].answer)
