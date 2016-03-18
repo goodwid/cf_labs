@@ -36,16 +36,22 @@ var quizQuestions = [
 ];
 
 //put question presentation, answer analysis, and feedback in functions based on answer type (string, number, or array)
+var output = '';
 function askForString (quizQuestion, quizAnswer) {
   questionCounter++;
+  output += '<h2>' + quizQuestion + '</h2>';
+  document.getElementById('feedback').innerHTML = output;
   var userResponse = (prompt(quizQuestion)).toUpperCase();
   console.log('When asked, "' + quizQuestion + '" user answered "' + userResponse + '."');
+
+
   if (userResponse === quizAnswer) {
-    alert('That\'s correct!');
+    output += '<p>That\'s correct!</p>';
     correct++;
   } else {
-    alert('Bummer. The answer was actually ' + quizAnswer + '.');
+    output += '<p>Bummer. The answer was actually ' + quizAnswer + '.</p>';
     }
+  document.getElementById('feedback').innerHTML = output;
 }
 
 function askForNumber (quizQuestion, quizAnswer) {
